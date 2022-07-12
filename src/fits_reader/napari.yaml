@@ -1,0 +1,48 @@
+name: fits-reader
+display_name: FITS Reader
+contributions:
+  commands:
+    - id: fits-reader.get_reader
+      python_name: fits_reader._reader:napari_get_reader
+      title: Open data with FITS Reader
+    - id: fits-reader.write_multiple
+      python_name: fits_reader._writer:write_multiple
+      title: Save multi-layer data with FITS Reader
+    - id: fits-reader.write_single_image
+      python_name: fits_reader._writer:write_single_image
+      title: Save image data with FITS Reader
+    - id: fits-reader.make_sample_data
+      python_name: fits_reader._sample_data:make_sample_data
+      title: Load sample data from FITS Reader
+    - id: fits-reader.make_qwidget
+      python_name: fits_reader._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: fits-reader.make_magic_widget
+      python_name: fits_reader._widget:example_magic_widget
+      title: Make example magic widget
+    - id: fits-reader.make_func_widget
+      python_name: fits_reader._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: fits-reader.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: fits-reader.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: fits-reader.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  sample_data:
+    - command: fits-reader.make_sample_data
+      display_name: FITS Reader
+      key: unique_id.1
+  widgets:
+    - command: fits-reader.make_qwidget
+      display_name: Example QWidget
+    - command: fits-reader.make_magic_widget
+      display_name: Example Magic Widget
+    - command: fits-reader.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
