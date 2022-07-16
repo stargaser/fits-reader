@@ -26,7 +26,7 @@ contributions:
   readers:
     - command: fits-reader.get_reader
       accepts_directories: false
-      filename_patterns: ['*.npy']
+      filename_patterns: ['*.fits']
   writers:
     - command: fits-reader.write_multiple
       layer_types: ['image*','labels*']
